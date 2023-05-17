@@ -6,7 +6,6 @@
 }
 
 .note {
-  background: #f2e379;
   width: 200px;
   padding: 15px;
   margin-bottom: 10px;
@@ -19,7 +18,7 @@
   }
 }
 
-.note__delete-button {
+.destroy {
   font-family: inherit;
   font-size: inherit;
   border: none;
