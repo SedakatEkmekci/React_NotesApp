@@ -1,22 +1,20 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addNote } from '../redux/notes/notesSlice';
+import { React } from 'react';
+
+
 
 
 function Search() {
-    const [title, setTitle] = useState('');
-    const dispatch = useDispatch();
-    const handleSubmit = (e) => {
-        if (!title) return;
+    let search;
+    const handleSearch = (e) => {
         e.preventDefault();
-        dispatch(addNote({ title }));
-        setTitle('');
+        const search = e.target.value.toLowerCase();
+        console.log(search);
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input className='search-input' placeholder='Search..' autoFocus value={title} onChange={(e) => setTitle(e.target.value)} />
-        </form>
+
+        <input className='search-input' type='search' placeholder='Search..' onChange={(e) => { handleSearch(e) }} />
+
     )
 }
 
