@@ -17,7 +17,7 @@ function Notes() {
                     <li key={item.id} >
                         <div className='note'>
                             <label>{item.title}</label>
-                            <button className="destroy"></button>
+
 
                         </div>
                     </li>
