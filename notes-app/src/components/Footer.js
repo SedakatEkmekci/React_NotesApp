@@ -6,7 +6,7 @@ function Footer() {
         <footer className='info'>
             <p>Click to edit a note</p>
             <p>Created by <a href="https://www.linkedin.com/in/sedakat-ekmekci/">Sedakat Ekmekçi</a></p>
-            <p>To access the project codes <a href="https://github.com/SedakatEkmekci/React_NotesApp"></a></p>
+            <p>To access the project codes <a href="https://github.com/SedakatEkmekci/React_NotesApp">Github Link</a></p>
 
         </footer>
     )
