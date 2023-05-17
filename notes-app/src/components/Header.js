@@ -1,12 +1,12 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import Search from './Search';
 
 
 function Header() {
     return (
-        <header className='header'>
+        <header className='app-header'>
             <h1>Notes App</h1>
-            <Form />
+            <Search />
         </header>
     )
 }
