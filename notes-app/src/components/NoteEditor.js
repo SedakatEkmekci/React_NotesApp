@@ -1,13 +1,27 @@
-import React from 'react'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addNote } from '../redux/notes/notesSlice';
 
 function NoteEditor() {
+    const [title, setTitle] = useState('');
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+        if (!title) return;
+        e.preventDefault();
+        dispatch(addNote({ title }));
+        setTitle('');
+    };
+
     return (
 
-        <div className="note-editor">
-            <textarea
+        <form className="note-editor" onSubmit={handleSubmit} >
+            <input
                 placeholder="Enter your note here..."
-                rows={5}
                 className="textarea"
+                autoFocus
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
 
             />
             <div className="color-picker">
@@ -22,8 +36,8 @@ function NoteEditor() {
                 <input type="radio" name="color-pick" value="#AED581" id="color5" />
                 <label htmlFor="color5" style={{ backgroundColor: "#AED581" }}></label>
             </div>
-            <button className="add-button" >Add</button>
-        </div>
+            <button className="add-button"  >Add</button>
+        </form>
 
     )
 }
