@@ -21,9 +21,7 @@ export const notesSlice = createSlice({
         addNote: (state, action) => {
             state.items.push(action.payload);
         },
-        changeColor: (state, action) => {
-            state.items.push(action.payload);
-        },
+
 
     },
 });
