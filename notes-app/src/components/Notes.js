@@ -7,6 +7,7 @@ import { selectNotes } from '../redux/notes/notesSlice';
 function Notes() {
 
     const items = useSelector(selectNotes);
+    console.log(items);
 
     return (
         <ul className="note-list">
@@ -14,7 +15,7 @@ function Notes() {
             {
                 items.map((item) => (
 
-                    <li key={item.id} >
+                    <li key={item.id} style={{ backgroundColor: item.color }} >
                         <div className='note' >
                             <label >{item.title}</label>
 
