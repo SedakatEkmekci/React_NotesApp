@@ -76,13 +76,8 @@
   margin-bottom: -35px;
 }
 
-.color-picker input {
-  visibility: hidden;
-  width: 0;
-  margin: 0;
-}
 
-.color-picker label {
+.color-btn {
   display: inline-block;
   width: 25px;
   height: 25px;
@@ -90,9 +85,10 @@
   margin-right: 5px;
   position: relative;
   cursor: pointer;
+  border: none;
 }
 
-.color-picker input[type="radio"]:checked+label:after {
+.color-picker:after {
   content: "";
   position: absolute;
   transform: rotate(45deg);
@@ -120,6 +116,7 @@
 
 
 /*Note list CSS */
+
 .note-list {
   width: 100%;
   max-width: 600px;
@@ -128,14 +125,17 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
+
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
   list-style: none;
 }
+
+
 
 .note {
   padding: 15px;
