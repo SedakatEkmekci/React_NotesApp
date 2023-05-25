@@ -7,9 +7,12 @@ export const notesSlice = createSlice({
             {
                 id: 1,
                 title: 'Note 1',
-                color: 'coral'
-
-
+                color: '#FFA726'
+            },
+            {
+                id: 2,
+                title: 'Note 2',
+                color: '#F06292'
             },
 
 
@@ -20,36 +23,23 @@ export const notesSlice = createSlice({
             reducer: (state, action) => {
                 state.items.push(action.payload);
             },
-            prepare: ({ title }) => {
+            prepare: ({ title, color }) => {
                 return {
                     payload: {
                         id: nanoid(),
                         title,
+                        color,
 
                     },
                 };
             },
 
         },
-        addColor: {
-            reducer: (state, action) => {
-                state.items.push(action.payload);
-            },
-            prepare: ({ color }) => {
-                return {
-                    payload: {
-                        id: nanoid(),
-                        color
 
-                    },
-                };
-            },
-
-        },
     },
 });
 export const selectNotes = state => state.notes.items;
 
-export const { addNote, addColor } = notesSlice.actions;
+export const { addNote } = notesSlice.actions;
 
 export default notesSlice.reducer;
