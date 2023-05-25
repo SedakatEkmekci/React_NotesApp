@@ -18,8 +18,6 @@ function Notes() {
                     <li key={item.id} style={{ backgroundColor: item.color }} >
                         <div className='note' >
                             <label >{item.title}</label>
-
-
                         </div>
                     </li>
 
