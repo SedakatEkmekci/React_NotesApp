@@ -15,9 +15,9 @@ function Notes() {
             {
                 items.map((item) => (
 
-                    <li key={item.id} style={{ backgroundColor: item.color }} >
-                        <div className='note' >
-                            <label >{item.title}</label>
+                    <li key={item.id}  >
+                        <div className='note' style={{ backgroundColor: item.color }}>
+                            <label >{item.text}</label>
                         </div>
                     </li>
 
