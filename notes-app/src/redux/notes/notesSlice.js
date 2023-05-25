@@ -6,12 +6,12 @@ export const notesSlice = createSlice({
         items: [
             {
                 id: 1,
-                title: 'Note 1',
+                text: 'Note 1',
                 color: '#FFA726'
             },
             {
                 id: 2,
-                title: 'Note 2',
+                text: 'Note 2',
                 color: '#F06292'
             },
         ],
