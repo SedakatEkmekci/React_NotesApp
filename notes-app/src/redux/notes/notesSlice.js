@@ -5,15 +5,11 @@ export const notesSlice = createSlice({
     initialState: {
         items: [
             {
-                id: 1,
-                text: 'Note 1',
-                color: '#FFA726'
+                id: nanoid(),
+                text: 'Test Note',
+                color: ''
             },
-            {
-                id: 2,
-                text: 'Note 2',
-                color: '#F06292'
-            },
+
         ],
         search: '',
     },
@@ -21,12 +17,29 @@ export const notesSlice = createSlice({
         addNote: (state, action) => {
             state.items.push(action.payload);
         },
+        searchNote: (state, action) => {
+            state.search = action.payload.search;
+        },
 
 
     },
 });
 export const selectNotes = state => state.notes.items;
 
-export const { addNote, changeColor } = notesSlice.actions;
+export const getFilteredNotes = (state) => {
+    if (state.notes.search !== '') {
+        return state.notes.list.filter(
+            (note) =>
+                note.text
+                    .toLowerCase()
+                    .includes(state.notes.search.toLowerCase())
+        )
+    }
+    else {
+        return state.notes.list;
+    }
+};
+
+export const { addNote, searchNote } = notesSlice.actions;
 
 export default notesSlice.reducer;
