@@ -19,7 +19,7 @@ function Search() {
                 value={notes}
                 onChange={(e) => dispatch(filterNote(e.target.value))}
             />
-            <br /><br />
+
             <div className="note-list">
                 {
                     notes.length > 0 ? (
