@@ -1,34 +1,42 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectNotes, getFilteredNotes } from '../redux/notes/notesSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectNotes, deleteNote } from '../redux/notes/notesSlice';
+
 
 
 
 function Notes() {
 
-    const notes = useSelector(getFilteredNotes);
+    const dispatch = useDispatch();
+    const notes = useSelector(selectNotes);
+
+
     console.log(notes);
+
 
 
     return (
 
         <ul className="note-list">
-            {notes.length > 0 ? (
-                notes.map((note) => (
+            {
+                notes.length > 0 ? (
+                    notes.map((note) => (
 
-                    <li key={note.id}  >
-                        <div className='note' style={{ backgroundColor: note.color }}>
-                            <label >{note.text}</label>
+                        <li key={note.id}  >
+                            <div className='note' style={{ backgroundColor: note.color }}>
+                                <label >{note.text}</label>
+                                <button className="delete-btn" onClick={() => dispatch(deleteNote(note.id))}></button>
+                            </div>
+
+                        </li>
+                    ))
+                ) : (
+                    <li>
+                        <div className='note' style={{ backgroundColor: '#FFF' }}>
+                            <label >There is no note here!</label>
                         </div>
                     </li>
-                ))
-            ) : (
-                <li>
-                    <div className='note' style={{ backgroundColor: '#FFF' }}>
-                        <label >There is no note here!</label>
-                    </div>
-                </li>
-            )}
+                )}
         </ul>
 
     );
