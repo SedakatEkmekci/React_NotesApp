@@ -7,6 +7,7 @@ Patika.dev Notes App Project using react-redux in the Intermediate Front-End pat
 - Notes are listed in whatever color is selected before recording.
 - Any previously written note can be filtered with another input on the screen.
 
+![NotesApp](https://github.com/SedakatEkmekci/React_NotesApp/assets/73519789/8b4d2179-8224-4348-89dc-33936de00eaf)
 
-![image](https://github.com/SedakatEkmekci/React_NotesApp/assets/73519789/850a6c30-9129-484f-b6e7-53598f5ed33d)
+
 
