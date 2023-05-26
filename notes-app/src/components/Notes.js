@@ -17,27 +17,26 @@ function Notes() {
 
     return (
 
-        <ul className="note-list">
+        <div className="note-list">
             {
                 notes.length > 0 ? (
                     notes.map((note) => (
 
-                        <li key={note.id}  >
-                            <div className='note' style={{ backgroundColor: note.color }}>
-                                <label >{note.text}</label>
-                                <button className="delete-btn" onClick={() => dispatch(deleteNote(note.id))}></button>
-                            </div>
 
-                        </li>
+                        <div className='note' key={note.id} style={{ backgroundColor: note.color }}>
+                            <label >{note.text}</label>
+                            <button className="delete-btn" onClick={() => dispatch(deleteNote(note.id))}></button>
+                        </div>
+
                     ))
                 ) : (
-                    <li>
-                        <div className='note' style={{ backgroundColor: '#FFF' }}>
-                            <label >There is no note here!</label>
-                        </div>
-                    </li>
+
+                    <div className='note' style={{ backgroundColor: '#FFF' }}>
+                        <label >There is no note here!</label>
+                    </div>
+
                 )}
-        </ul>
+        </div>
 
     );
 }
