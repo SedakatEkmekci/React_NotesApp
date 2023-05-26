@@ -17,29 +17,27 @@ export const notesSlice = createSlice({
         addNote: (state, action) => {
             state.items.push(action.payload);
         },
-        searchNote: (state, action) => {
-            state.search = action.payload.search;
+        filterNote: (state, action) => {
+            state.search = action.payload
+        },
+        deleteNote: (state, action) => {
+            state.items = state.items.filter(item => item.id !== action.payload)
         },
 
 
     },
 });
 export const selectNotes = state => state.notes.items;
+export const searchNote = state => state.notes.search;
 
-export const getFilteredNotes = (state) => {
-    if (state.notes.search !== '') {
-        return state.notes.list.filter(
-            (note) =>
-                note.text
-                    .toLowerCase()
-                    .includes(state.notes.search.toLowerCase())
-        )
-    }
-    else {
-        return state.notes.list;
-    }
-};
+export const filteredNote = state => state.notes.items.filter((note) => {
+    return Object.keys(note).some((key) =>
+        note[key].toString().toLowerCase().includes(state.notes.search.toLowerCase())
+    );
+});
 
-export const { addNote, searchNote } = notesSlice.actions;
+
+
+export const { addNote, filterNote, deleteNote } = notesSlice.actions;
 
 export default notesSlice.reducer;
